@@ -1,5 +1,6 @@
 package com.upchiapas.tripadvisor.controllers;
 
+import com.upchiapas.tripadvisor.HelloApplication;
 import com.upchiapas.tripadvisor.models.ValidateUser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -7,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
 
 public class LoginController {
 
@@ -27,11 +29,12 @@ public class LoginController {
         ValidateUser user = new ValidateUser();
 
         if (user.autenticarUser(txtUsername.getText(), txtPassword.getText())){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            HelloApplication.setFXML("root-view", "Home - TripAdvisor");
+            /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setTitle("Login - Info");
             alert.setContentText("Bienvenido al sistema");
-            alert.showAndWait();
+            alert.showAndWait(); */
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -39,6 +42,7 @@ public class LoginController {
             alert.setContentText("El usuario no existe");
             alert.showAndWait();
         }
+
     }
 
     @FXML
