@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
+
 public class RootController {
 
     @FXML
@@ -23,7 +25,7 @@ public class RootController {
     }
 
     @FXML
-    void btnSearchOnMouseClicked(MouseEvent event) {
+    void btnSearchOnMouseClicked(MouseEvent event) throws IOException {
         HelloApplication.setFXML("user-view","Add User - TripAdvisor");
     }
 

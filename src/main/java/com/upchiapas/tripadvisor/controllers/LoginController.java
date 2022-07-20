@@ -2,15 +2,24 @@ package com.upchiapas.tripadvisor.controllers;
 
 import com.upchiapas.tripadvisor.HelloApplication;
 import com.upchiapas.tripadvisor.models.ValidateUser;
+import javafx.application.Application;
+import javafx.application.HostServices;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 
 public class LoginController {
+
+    HostServices hostServices;
+
+
+    @FXML
+    private Hyperlink link;
 
     @FXML
     private Button btnIniciarSesion;
@@ -25,7 +34,7 @@ public class LoginController {
     private TextField txtUsername;
 
     @FXML
-    void btnIniciarSesionOnMouseClicked(MouseEvent event) {
+    void btnIniciarSesionOnMouseClicked(MouseEvent event) throws IOException {
         ValidateUser user = new ValidateUser();
 
         if (user.autenticarUser(txtUsername.getText(), txtPassword.getText())){
@@ -48,6 +57,14 @@ public class LoginController {
     @FXML
     void btnSalirOnMouseClicked(MouseEvent event) {
         System.exit(1);
+    }
+
+    @FXML
+    void linkOnMouseLinked(MouseEvent event) throws URISyntaxException, IOException {
+        hostServices.showDocument(link.getText());
+    }
+    public void setHostServices(HostServices hostServices){
+        this.hostServices = hostServices;
     }
 
 }

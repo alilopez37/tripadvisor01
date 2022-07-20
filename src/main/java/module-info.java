@@ -1,6 +1,7 @@
 module com.upchiapas.tripadvisor {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens com.upchiapas.tripadvisor to javafx.fxml;
